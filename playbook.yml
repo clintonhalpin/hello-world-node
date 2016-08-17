@@ -1,0 +1,25 @@
+---
+- hosts: all
+  tasks:
+    - include_vars: vars.yml
+    - name: install packages
+      apt: name={{ item }} update_cache=yes state=latest
+      with_items:
+      - git
+      - node
+      - npm
+      - nginx
+      - vim
+      - fail2ban
+
+    - name: Remove default NGINX Confix
+      shell: sudo rm -rf /etc/nginx/sites-available/default
+
+    - name: create vhost
+      template: src=templates/app.conf dest=/etc/nginx/sites-enabled/app.conf
+    
+    - name: create vhost
+      template: src=templates/app.conf dest=/etc/nginx/sites-available/app.conf      
+
+    - name: restart nginx
+      shell: service nginx restart

@@ -1,0 +1,1 @@
+export PS1="\\$ \[$(tput sgr0)\]\[\033[38;5;197m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] > \[$(tput sgr0)\]\[\033[38;5;226m\]\u\[$(tput sgr0)\]\ $(parse_git_branch)$NO_COLOUR\$ "

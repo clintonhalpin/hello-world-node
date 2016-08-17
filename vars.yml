@@ -1,0 +1,5 @@
+---
+# A list of variables used in the build
+
+app_port: 3000
+app_root: /var/www/app
